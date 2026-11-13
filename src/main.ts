@@ -8,8 +8,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.enableCors();
-  // Use the platform's PORT or fallback to 3000
-  await app.listen(process.env.PORT || 3000);
-  console.log(`🚀 CaBank backend running on port ${process.env.PORT || 3000}`);
+  
+  const port = process.env.PORT || 3000;
+  // Important: Bind to 0.0.0.0 for Render
+  await app.listen(port, '0.0.0.0');
+  console.log(`🚀 CaBank running on port ${port}`);
 }
 bootstrap();
