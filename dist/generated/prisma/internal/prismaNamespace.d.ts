@@ -165,6 +165,7 @@ export declare const ModelName: {
     readonly Card: "Card";
     readonly Beneficiary: "Beneficiary";
     readonly Transaction: "Transaction";
+    readonly Message: "Message";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export interface TypeMapCb<GlobalOmitOptions = {}> extends runtime.Types.Utils.Fn<{
@@ -177,7 +178,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "user" | "account" | "card" | "beneficiary" | "transaction";
+        modelProps: "user" | "account" | "card" | "beneficiary" | "transaction" | "message";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -551,6 +552,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
+        Message: {
+            payload: Prisma.$MessagePayload<ExtArgs>;
+            fields: Prisma.MessageFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.MessageFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.MessageFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                findFirst: {
+                    args: Prisma.MessageFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.MessageFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                findMany: {
+                    args: Prisma.MessageFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>[];
+                };
+                create: {
+                    args: Prisma.MessageCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                createMany: {
+                    args: Prisma.MessageCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.MessageCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>[];
+                };
+                delete: {
+                    args: Prisma.MessageDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                update: {
+                    args: Prisma.MessageUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                deleteMany: {
+                    args: Prisma.MessageDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.MessageUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.MessageUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>[];
+                };
+                upsert: {
+                    args: Prisma.MessageUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$MessagePayload>;
+                };
+                aggregate: {
+                    args: Prisma.MessageAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateMessage>;
+                };
+                groupBy: {
+                    args: Prisma.MessageGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.MessageGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.MessageCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.MessageCountAggregateOutputType> | number;
+                };
+            };
+        };
     };
 } & {
     other: {
@@ -641,6 +716,17 @@ export declare const TransactionScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type TransactionScalarFieldEnum = (typeof TransactionScalarFieldEnum)[keyof typeof TransactionScalarFieldEnum];
+export declare const MessageScalarFieldEnum: {
+    readonly id: "id";
+    readonly userId: "userId";
+    readonly sender: "sender";
+    readonly title: "title";
+    readonly body: "body";
+    readonly iconType: "iconType";
+    readonly readAt: "readAt";
+    readonly createdAt: "createdAt";
+};
+export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -703,6 +789,7 @@ export type GlobalOmitConfig = {
     card?: Prisma.CardOmit;
     beneficiary?: Prisma.BeneficiaryOmit;
     transaction?: Prisma.TransactionOmit;
+    message?: Prisma.MessageOmit;
 };
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {

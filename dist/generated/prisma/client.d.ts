@@ -11,3 +11,4 @@ export type Account = Prisma.AccountModel;
 export type Card = Prisma.CardModel;
 export type Beneficiary = Prisma.BeneficiaryModel;
 export type Transaction = Prisma.TransactionModel;
+export type Message = Prisma.MessageModel;

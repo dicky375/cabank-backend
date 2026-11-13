@@ -16,6 +16,7 @@ export declare const ModelName: {
     readonly Card: "Card";
     readonly Beneficiary: "Beneficiary";
     readonly Transaction: "Transaction";
+    readonly Message: "Message";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -84,6 +85,17 @@ export declare const TransactionScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type TransactionScalarFieldEnum = (typeof TransactionScalarFieldEnum)[keyof typeof TransactionScalarFieldEnum];
+export declare const MessageScalarFieldEnum: {
+    readonly id: "id";
+    readonly userId: "userId";
+    readonly sender: "sender";
+    readonly title: "title";
+    readonly body: "body";
+    readonly iconType: "iconType";
+    readonly readAt: "readAt";
+    readonly createdAt: "createdAt";
+};
+export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

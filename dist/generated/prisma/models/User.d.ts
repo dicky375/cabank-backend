@@ -123,6 +123,7 @@ export type UserWhereInput = {
     accounts?: Prisma.AccountListRelationFilter;
     cards?: Prisma.CardListRelationFilter;
     beneficiaries?: Prisma.BeneficiaryListRelationFilter;
+    messages?: Prisma.MessageListRelationFilter;
 };
 export type UserOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -136,6 +137,7 @@ export type UserOrderByWithRelationInput = {
     accounts?: Prisma.AccountOrderByRelationAggregateInput;
     cards?: Prisma.CardOrderByRelationAggregateInput;
     beneficiaries?: Prisma.BeneficiaryOrderByRelationAggregateInput;
+    messages?: Prisma.MessageOrderByRelationAggregateInput;
 };
 export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string;
@@ -152,6 +154,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
     accounts?: Prisma.AccountListRelationFilter;
     cards?: Prisma.CardListRelationFilter;
     beneficiaries?: Prisma.BeneficiaryListRelationFilter;
+    messages?: Prisma.MessageListRelationFilter;
 }, "id" | "email" | "phone">;
 export type UserOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -191,6 +194,7 @@ export type UserCreateInput = {
     accounts?: Prisma.AccountCreateNestedManyWithoutUserInput;
     cards?: Prisma.CardCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateInput = {
     id?: string;
@@ -204,6 +208,7 @@ export type UserUncheckedCreateInput = {
     accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput;
     cards?: Prisma.CardUncheckedCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -217,6 +222,7 @@ export type UserUpdateInput = {
     accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput;
     cards?: Prisma.CardUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -230,6 +236,7 @@ export type UserUncheckedUpdateInput = {
     accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput;
     cards?: Prisma.CardUncheckedUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCreateManyInput = {
     id?: string;
@@ -337,6 +344,18 @@ export type UserUpdateOneRequiredWithoutBeneficiariesNestedInput = {
     connect?: Prisma.UserWhereUniqueInput;
     update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBeneficiariesInput, Prisma.UserUpdateWithoutBeneficiariesInput>, Prisma.UserUncheckedUpdateWithoutBeneficiariesInput>;
 };
+export type UserCreateNestedOneWithoutMessagesInput = {
+    create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>;
+    connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesInput;
+    connect?: Prisma.UserWhereUniqueInput;
+};
+export type UserUpdateOneRequiredWithoutMessagesNestedInput = {
+    create?: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>;
+    connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessagesInput;
+    upsert?: Prisma.UserUpsertWithoutMessagesInput;
+    connect?: Prisma.UserWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessagesInput, Prisma.UserUpdateWithoutMessagesInput>, Prisma.UserUncheckedUpdateWithoutMessagesInput>;
+};
 export type UserCreateWithoutAccountsInput = {
     id?: string;
     firstName: string;
@@ -348,6 +367,7 @@ export type UserCreateWithoutAccountsInput = {
     updatedAt?: Date | string;
     cards?: Prisma.CardCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateWithoutAccountsInput = {
     id?: string;
@@ -360,6 +380,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
     updatedAt?: Date | string;
     cards?: Prisma.CardUncheckedCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserCreateOrConnectWithoutAccountsInput = {
     where: Prisma.UserWhereUniqueInput;
@@ -385,6 +406,7 @@ export type UserUpdateWithoutAccountsInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     cards?: Prisma.CardUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateWithoutAccountsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -397,6 +419,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     cards?: Prisma.CardUncheckedUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCreateWithoutCardsInput = {
     id?: string;
@@ -409,6 +432,7 @@ export type UserCreateWithoutCardsInput = {
     updatedAt?: Date | string;
     accounts?: Prisma.AccountCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateWithoutCardsInput = {
     id?: string;
@@ -421,6 +445,7 @@ export type UserUncheckedCreateWithoutCardsInput = {
     updatedAt?: Date | string;
     accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserCreateOrConnectWithoutCardsInput = {
     where: Prisma.UserWhereUniqueInput;
@@ -446,6 +471,7 @@ export type UserUpdateWithoutCardsInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateWithoutCardsInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -458,6 +484,7 @@ export type UserUncheckedUpdateWithoutCardsInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput;
     beneficiaries?: Prisma.BeneficiaryUncheckedUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCreateWithoutBeneficiariesInput = {
     id?: string;
@@ -470,6 +497,7 @@ export type UserCreateWithoutBeneficiariesInput = {
     updatedAt?: Date | string;
     accounts?: Prisma.AccountCreateNestedManyWithoutUserInput;
     cards?: Prisma.CardCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageCreateNestedManyWithoutUserInput;
 };
 export type UserUncheckedCreateWithoutBeneficiariesInput = {
     id?: string;
@@ -482,6 +510,7 @@ export type UserUncheckedCreateWithoutBeneficiariesInput = {
     updatedAt?: Date | string;
     accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput;
     cards?: Prisma.CardUncheckedCreateNestedManyWithoutUserInput;
+    messages?: Prisma.MessageUncheckedCreateNestedManyWithoutUserInput;
 };
 export type UserCreateOrConnectWithoutBeneficiariesInput = {
     where: Prisma.UserWhereUniqueInput;
@@ -507,6 +536,7 @@ export type UserUpdateWithoutBeneficiariesInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput;
     cards?: Prisma.CardUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUpdateManyWithoutUserNestedInput;
 };
 export type UserUncheckedUpdateWithoutBeneficiariesInput = {
     id?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -519,16 +549,84 @@ export type UserUncheckedUpdateWithoutBeneficiariesInput = {
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput;
     cards?: Prisma.CardUncheckedUpdateManyWithoutUserNestedInput;
+    messages?: Prisma.MessageUncheckedUpdateManyWithoutUserNestedInput;
+};
+export type UserCreateWithoutMessagesInput = {
+    id?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    passwordHash: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    accounts?: Prisma.AccountCreateNestedManyWithoutUserInput;
+    cards?: Prisma.CardCreateNestedManyWithoutUserInput;
+    beneficiaries?: Prisma.BeneficiaryCreateNestedManyWithoutUserInput;
+};
+export type UserUncheckedCreateWithoutMessagesInput = {
+    id?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    passwordHash: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput;
+    cards?: Prisma.CardUncheckedCreateNestedManyWithoutUserInput;
+    beneficiaries?: Prisma.BeneficiaryUncheckedCreateNestedManyWithoutUserInput;
+};
+export type UserCreateOrConnectWithoutMessagesInput = {
+    where: Prisma.UserWhereUniqueInput;
+    create: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>;
+};
+export type UserUpsertWithoutMessagesInput = {
+    update: Prisma.XOR<Prisma.UserUpdateWithoutMessagesInput, Prisma.UserUncheckedUpdateWithoutMessagesInput>;
+    create: Prisma.XOR<Prisma.UserCreateWithoutMessagesInput, Prisma.UserUncheckedCreateWithoutMessagesInput>;
+    where?: Prisma.UserWhereInput;
+};
+export type UserUpdateToOneWithWhereWithoutMessagesInput = {
+    where?: Prisma.UserWhereInput;
+    data: Prisma.XOR<Prisma.UserUpdateWithoutMessagesInput, Prisma.UserUncheckedUpdateWithoutMessagesInput>;
+};
+export type UserUpdateWithoutMessagesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    firstName?: Prisma.StringFieldUpdateOperationsInput | string;
+    lastName?: Prisma.StringFieldUpdateOperationsInput | string;
+    email?: Prisma.StringFieldUpdateOperationsInput | string;
+    phone?: Prisma.StringFieldUpdateOperationsInput | string;
+    passwordHash?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput;
+    cards?: Prisma.CardUpdateManyWithoutUserNestedInput;
+    beneficiaries?: Prisma.BeneficiaryUpdateManyWithoutUserNestedInput;
+};
+export type UserUncheckedUpdateWithoutMessagesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    firstName?: Prisma.StringFieldUpdateOperationsInput | string;
+    lastName?: Prisma.StringFieldUpdateOperationsInput | string;
+    email?: Prisma.StringFieldUpdateOperationsInput | string;
+    phone?: Prisma.StringFieldUpdateOperationsInput | string;
+    passwordHash?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput;
+    cards?: Prisma.CardUncheckedUpdateManyWithoutUserNestedInput;
+    beneficiaries?: Prisma.BeneficiaryUncheckedUpdateManyWithoutUserNestedInput;
 };
 export type UserCountOutputType = {
     accounts: number;
     cards: number;
     beneficiaries: number;
+    messages: number;
 };
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs;
     cards?: boolean | UserCountOutputTypeCountCardsArgs;
     beneficiaries?: boolean | UserCountOutputTypeCountBeneficiariesArgs;
+    messages?: boolean | UserCountOutputTypeCountMessagesArgs;
 };
 export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null;
@@ -542,6 +640,9 @@ export type UserCountOutputTypeCountCardsArgs<ExtArgs extends runtime.Types.Exte
 export type UserCountOutputTypeCountBeneficiariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     where?: Prisma.BeneficiaryWhereInput;
 };
+export type UserCountOutputTypeCountMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.MessageWhereInput;
+};
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     firstName?: boolean;
@@ -554,6 +655,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
     accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>;
     cards?: boolean | Prisma.User$cardsArgs<ExtArgs>;
     beneficiaries?: boolean | Prisma.User$beneficiariesArgs<ExtArgs>;
+    messages?: boolean | Prisma.User$messagesArgs<ExtArgs>;
     _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["user"]>;
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -591,6 +693,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>;
     cards?: boolean | Prisma.User$cardsArgs<ExtArgs>;
     beneficiaries?: boolean | Prisma.User$beneficiariesArgs<ExtArgs>;
+    messages?: boolean | Prisma.User$messagesArgs<ExtArgs>;
     _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
@@ -601,6 +704,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
         accounts: Prisma.$AccountPayload<ExtArgs>[];
         cards: Prisma.$CardPayload<ExtArgs>[];
         beneficiaries: Prisma.$BeneficiaryPayload<ExtArgs>[];
+        messages: Prisma.$MessagePayload<ExtArgs>[];
     };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: string;
@@ -666,6 +770,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
     accounts<T extends Prisma.User$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     cards<T extends Prisma.User$cardsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$cardsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     beneficiaries<T extends Prisma.User$beneficiariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$beneficiariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BeneficiaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    messages<T extends Prisma.User$messagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
     catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
     finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
@@ -810,6 +915,17 @@ export type User$beneficiariesArgs<ExtArgs extends runtime.Types.Extensions.Inte
     take?: number;
     skip?: number;
     distinct?: Prisma.BeneficiaryScalarFieldEnum | Prisma.BeneficiaryScalarFieldEnum[];
+};
+export type User$messagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.MessageSelect<ExtArgs> | null;
+    omit?: Prisma.MessageOmit<ExtArgs> | null;
+    include?: Prisma.MessageInclude<ExtArgs> | null;
+    where?: Prisma.MessageWhereInput;
+    orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[];
+    cursor?: Prisma.MessageWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[];
 };
 export type UserDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.UserSelect<ExtArgs> | null;

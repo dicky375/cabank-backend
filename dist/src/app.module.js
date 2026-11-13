@@ -16,6 +16,9 @@ const accounts_module_1 = require("./accounts/accounts.module");
 const bills_module_1 = require("./bills/bills.module");
 const cards_module_1 = require("./cards/cards.module");
 const beneficiaries_module_1 = require("./beneficiaries/beneficiaries.module");
+const transactions_module_1 = require("./transactions/transactions.module");
+const messages_module_1 = require("./messages/messages.module");
+const withdrawals_module_1 = require("./withdrawals/withdrawals.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -30,6 +33,9 @@ exports.AppModule = AppModule = __decorate([
             bills_module_1.BillsModule,
             cards_module_1.CardsModule,
             beneficiaries_module_1.BeneficiariesModule,
+            transactions_module_1.TransactionsModule,
+            messages_module_1.MessagesModule,
+            withdrawals_module_1.WithdrawalsModule,
         ],
     })
 ], AppModule);
