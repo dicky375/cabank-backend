@@ -1,0 +1,11 @@
+import { Module } from '@nestjs/common';
+import { WithdrawalsService } from './withdrawals.service';
+import { WithdrawalsController } from './withdrawals.controller';
+import { LedgerModule } from '../ledger/ledger.module';
+
+@Module({
+  imports: [LedgerModule],
+  controllers: [WithdrawalsController],
+  providers: [WithdrawalsService],
+})
+export class WithdrawalsModule {}
