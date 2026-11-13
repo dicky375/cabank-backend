@@ -12,12 +12,19 @@ const prisma_module_1 = require("./prisma/prisma.module");
 const auth_module_1 = require("./auth/auth.module");
 const ledger_module_1 = require("./ledger/ledger.module");
 const transfers_module_1 = require("./transfers/transfers.module");
+const accounts_module_1 = require("./accounts/accounts.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, auth_module_1.AuthModule, ledger_module_1.LedgerModule, transfers_module_1.TransfersModule],
+        imports: [
+            prisma_module_1.PrismaModule,
+            auth_module_1.AuthModule,
+            ledger_module_1.LedgerModule,
+            transfers_module_1.TransfersModule,
+            accounts_module_1.AccountsModule,
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

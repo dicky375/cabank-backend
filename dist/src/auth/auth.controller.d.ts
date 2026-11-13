@@ -1,5 +1,6 @@
 import { AuthService } from './auth.service';
 import { SignInDto, SignUpDto } from './dto/auth.dto';
+import { AuthUser } from './current-user.decorator';
 export declare class AuthController {
     private authService;
     constructor(authService: AuthService);
@@ -17,4 +18,5 @@ export declare class AuthController {
             email: string;
         };
     }>;
+    me(user: AuthUser): AuthUser;
 }

@@ -3,8 +3,15 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { LedgerModule } from './ledger/ledger.module';
 import { TransfersModule } from './transfers/transfers.module';
+import { AccountsModule } from './accounts/accounts.module';
 
 @Module({
-  imports: [PrismaModule, AuthModule, LedgerModule, TransfersModule],
+  imports: [
+    PrismaModule,
+    AuthModule,
+    LedgerModule,
+    TransfersModule,
+    AccountsModule,
+  ],
 })
 export class AppModule {}
