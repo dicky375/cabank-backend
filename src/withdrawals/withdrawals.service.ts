@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { LedgerService } from '../ledger/ledger.service';
-import { TransactionType, Prisma } from '../../generated/prisma/client';
+import { TransactionType, Prisma } from '../generated/prisma/client';
 import { WithdrawDto } from './dto/withdraw.dto';
 
 const WITHDRAWAL_FEE_RATE = 0.01; // 1%

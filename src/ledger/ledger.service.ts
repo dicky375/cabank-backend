@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { Prisma, TransactionType, TransactionStatus } from '../../generated/prisma/client';
+import { Prisma, TransactionType, TransactionStatus } from '../generated/prisma/client';
 
 export interface TransferInput {
   senderAccountId: string;

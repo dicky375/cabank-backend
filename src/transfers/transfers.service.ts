@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { LedgerService } from '../ledger/ledger.service';
 import { TransferDto } from './dto/transfer.dto';
-import { TransactionType } from '../../generated/prisma/client';
+import { TransactionType } from '../generated/prisma/client';
 
 @Injectable()
 export class TransfersService {

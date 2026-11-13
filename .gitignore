@@ -6,3 +6,5 @@ node_modules
 .claude/skills
 .windsurf
 
+src/generated/
+dist/
