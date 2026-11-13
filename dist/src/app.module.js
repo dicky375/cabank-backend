@@ -13,6 +13,7 @@ const auth_module_1 = require("./auth/auth.module");
 const ledger_module_1 = require("./ledger/ledger.module");
 const transfers_module_1 = require("./transfers/transfers.module");
 const accounts_module_1 = require("./accounts/accounts.module");
+const bills_module_1 = require("./bills/bills.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,6 +25,7 @@ exports.AppModule = AppModule = __decorate([
             ledger_module_1.LedgerModule,
             transfers_module_1.TransfersModule,
             accounts_module_1.AccountsModule,
+            bills_module_1.BillsModule,
         ],
     })
 ], AppModule);
