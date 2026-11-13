@@ -61,10 +61,11 @@ let BillsService = class BillsService {
         const result = await this.ledger.transfer({
             senderAccountId: dto.senderAccountId,
             receiverAccountId: bill_types_1.TREASURY_ACCOUNT_ID,
-            amount: subtotal,
-            fee: tax,
+            amount: subtotal.toFixed(2),
+            fee: tax.toFixed(2),
             type: client_1.TransactionType.BILL_PAYMENT,
             description: `${bill_types_1.BILL_LABELS[dto.type]}${dto.customerCode ? ` #${dto.customerCode}` : ''}`,
+            creditReceiverWithFee: true,
         });
         return {
             ...result,

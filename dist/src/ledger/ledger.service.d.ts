@@ -7,6 +7,7 @@ export interface TransferInput {
     fee?: string | number;
     type: TransactionType;
     description?: string;
+    creditReceiverWithFee?: boolean;
 }
 export declare class LedgerService {
     private prisma;

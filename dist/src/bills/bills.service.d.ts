@@ -39,10 +39,10 @@ export declare class BillsService {
         transactions: {
             total: string;
             type: BillType | null;
-            reference: string;
-            status: TransactionStatus;
-            createdAt: Date;
             id: string;
+            createdAt: Date;
+            status: TransactionStatus;
+            reference: string;
             amount: import("@prisma/client-runtime-utils").Decimal;
             fee: import("@prisma/client-runtime-utils").Decimal;
             description: string | null;

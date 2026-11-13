@@ -5,6 +5,8 @@ import { LedgerModule } from './ledger/ledger.module';
 import { TransfersModule } from './transfers/transfers.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { BillsModule } from './bills/bills.module';
+import { CardsModule } from './cards/cards.module';
+import { BeneficiariesModule } from './beneficiaries/beneficiaries.module';
 
 @Module({
   imports: [
@@ -14,6 +16,8 @@ import { BillsModule } from './bills/bills.module';
     TransfersModule,
     AccountsModule,
     BillsModule,
+    CardsModule,
+    BeneficiariesModule,
   ],
 })
 export class AppModule {}

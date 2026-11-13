@@ -50,9 +50,12 @@ let LedgerService = class LedgerService {
                 where: { id: input.senderAccountId },
                 data: { balance: { decrement: totalDebit } },
             });
+            const receiverCredit = input.creditReceiverWithFee
+                ? amount.plus(fee)
+                : amount;
             await tx.account.update({
                 where: { id: input.receiverAccountId },
-                data: { balance: { increment: amount } },
+                data: { balance: { increment: receiverCredit } },
             });
             const transaction = await tx.transaction.create({
                 data: {

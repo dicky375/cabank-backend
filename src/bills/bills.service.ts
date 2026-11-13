@@ -62,15 +62,16 @@ export class BillsService {
     const tax = subtotal.mul(taxRate);
 
     // Debit from sender (amount + tax), credit to treasury
-    const result = await this.ledger.transfer({
+   
+        const result = await this.ledger.transfer({
       senderAccountId: dto.senderAccountId,
       receiverAccountId: TREASURY_ACCOUNT_ID,
-      amount: subtotal,
-      fee: tax,
+      amount: subtotal.toFixed(2),  // ✅ string
+      fee: tax.toFixed(2),          // ✅ string
       type: TransactionType.BILL_PAYMENT,
       description: `${BILL_LABELS[dto.type]}${dto.customerCode ? ` #${dto.customerCode}` : ''}`,
+      creditReceiverWithFee: true,
     });
-
     return {
       ...result,
       bill: {
