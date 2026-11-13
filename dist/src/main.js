@@ -8,8 +8,8 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useGlobalPipes(new common_1.ValidationPipe({ whitelist: true, transform: true }));
     app.enableCors();
-    await app.listen(3000);
-    console.log('🚀 CaBank backend running on http://localhost:3000');
+    await app.listen(process.env.PORT || 3000);
+    console.log(`🚀 CaBank backend running on port ${process.env.PORT || 3000}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
