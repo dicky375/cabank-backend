@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AccountType {
+  CURRENT
+  SAVINGS
+  DEPOSIT
+}
+
+enum TransactionStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum TransactionType {
+  TRANSFER_INTERNAL
+  TRANSFER_EXTERNAL
+  BILL_PAYMENT
+  WITHDRAWAL
+  DEPOSIT
+}
+
+model User {
+  id            String   @id @default(uuid())
+  firstName     String
+  lastName      String
+  email         String   @unique
+  phone         String   @unique
+  passwordHash  String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  accounts      Account[]
+  cards         Card[]
+  beneficiaries Beneficiary[]
+}
+
+model Account {
+  id            String      @id @default(uuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  accountNumber String      @unique
+  type          AccountType @default(CURRENT)
+  balance       Decimal     @default(0) @db.Decimal(15, 2)
+  branch        String      @default("New York")
+  status        String      @default("ACTIVE")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  cards                Card[]
+  sentTransactions     Transaction[] @relation("SenderAccount")
+  receivedTransactions Transaction[] @relation("ReceiverAccount")
+}
+
+model Card {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id])
+  cardNumber String   @unique
+  expiryDate DateTime
+  cvvHash    String
+  brand      String   @default("VISA")
+  status     String   @default("ACTIVE")
+  createdAt  DateTime @default(now())
+}
+
+model Beneficiary {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  name          String
+  accountNumber String
+  bankName      String
+  type          String   @default("INTERNAL")
+  createdAt     DateTime @default(now())
+}
+
+model Transaction {
+  id             String            @id @default(uuid())
+  reference      String            @unique
+  senderId       String
+  senderAccount  Account           @relation("SenderAccount", fields: [senderId], references: [id])
+  receiverId     String?
+  receiverAccount Account?         @relation("ReceiverAccount", fields: [receiverId], references: [id])
+  amount         Decimal           @db.Decimal(15, 2)
+  fee            Decimal           @default(0) @db.Decimal(15, 2)
+  type           TransactionType
+  status         TransactionStatus @default(PENDING)
+  description    String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+}

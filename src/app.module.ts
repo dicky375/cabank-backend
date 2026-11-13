@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common';
+import { PrismaModule } from './prisma/prisma.module';
+import { AuthModule } from './auth/auth.module';
+import { LedgerModule } from './ledger/ledger.module';
+import { TransfersModule } from './transfers/transfers.module';
+
+@Module({
+  imports: [PrismaModule, AuthModule, LedgerModule, TransfersModule],
+})
+export class AppModule {}
