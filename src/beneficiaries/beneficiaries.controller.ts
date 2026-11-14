@@ -1,9 +1,11 @@
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { BeneficiariesService } from './beneficiaries.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser, AuthUser } from '../auth/current-user.decorator';
 import { CreateBeneficiaryDto } from './dto/create-beneficiary.dto';
 
+@ApiBearerAuth()
 @Controller('beneficiaries')
 @UseGuards(JwtAuthGuard)
 export class BeneficiariesController {

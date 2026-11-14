@@ -1,9 +1,11 @@
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { CardsService } from './cards.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser, AuthUser } from '../auth/current-user.decorator';
 import { CreateCardDto } from './dto/create-card.dto';
 
+@ApiBearerAuth()
 @Controller('cards')
 @UseGuards(JwtAuthGuard)
 export class CardsController {

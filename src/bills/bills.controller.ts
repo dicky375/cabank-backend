@@ -1,3 +1,4 @@
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { BillsService } from './bills.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -5,6 +6,7 @@ import { CurrentUser, AuthUser } from '../auth/current-user.decorator';
 import { PayBillDto, PreviewBillDto } from './dto/pay-bill.dto';
 import { BillType } from './bill-types';
 
+@ApiBearerAuth()
 @Controller('bills')
 @UseGuards(JwtAuthGuard)
 export class BillsController {

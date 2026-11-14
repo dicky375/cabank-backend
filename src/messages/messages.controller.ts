@@ -1,9 +1,11 @@
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { MessagesService } from './messages.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser, AuthUser } from '../auth/current-user.decorator';
 import { CreateMessageDto } from './dto/create-message.dto';
 
+@ApiBearerAuth()
 @Controller('messages')
 @UseGuards(JwtAuthGuard)
 export class MessagesController {
